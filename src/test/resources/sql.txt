@@ -1,0 +1,12 @@
+CREATE TABLE `sequence` (
+  `name` varchar(64) NOT NULL COMMENT '序号类型',
+  `current` bigint(20) NOT NULL default 1 COMMENT '当前序号值，默认从1开始',
+  `max` bigint(20) NOT NULL default 9223372036854775807 COMMENT '最大序号值默认值为Long.MAX',
+  `min` bigint(20) NOT NULL default 1 COMMENT '最小序号值，默认为1',
+  `step` bigint(20) NOT NULL default 1 COMMENT '步长，默认为1',
+  `count` bigint(20) NOT NULL default 100 COMMENT '内存缓存序号数默认100',
+  `loop` varchar(4) NOT NULL default 'N' COMMENT '序号是否重复使用，Y-重复使用，N-不重复使用',
+  `modify_time` datetime NOT NULL default now() COMMENT '更新时间',
+  `create_time` datetime NOT NULL default now() COMMENT '创建时间',
+  PRIMARY KEY (`name`)
+);
